@@ -1,0 +1,158 @@
+# Cara Upload Project ke GitHub
+
+## Persiapan
+
+### 1. Install Git
+- Download Git dari: https://git-scm.com/download/win
+- Install dengan settingan default
+- Restart Command Prompt setelah install
+
+### 2. Buat Akun GitHub
+- Buka: https://github.com
+- Klik "Sign Up" dan buat akun
+
+### 3. Buat Repository Baru di GitHub
+- Login ke GitHub
+- Klik tombol "+" di kanan atas, pilih "New repository"
+- Isi nama repository, misal: `sistem-berita-php`
+- Pilih **Public** atau **Private**
+- **JANGAN** centang "Add README file"
+- Klik "Create repository"
+
+---
+
+## Upload Project ke GitHub
+
+### Cara 1: Via Command Line (Git Bash)
+
+1. **Buka Git Bash di folder project**
+   - Buka folder: `C:\xampp\htdocs\uts_alif_web_login`
+   - Klik kanan di dalam folder, pilih **"Git Bash Here"**
+
+2. **Jalankan perintah ini satu per satu:**
+
+```bash
+# Inisialisasi git
+git init
+
+# Tambahkan semua file
+git add .
+
+# Commit pertama
+git commit -m "Initial commit - Sistem Berita dengan Dashboard"
+
+# Ganti nama branch ke main
+git branch -M main
+
+# Hubungkan ke repository GitHub (ganti USERNAME dan REPO_NAME)
+git remote add origin https://github.com/USERNAME/REPO_NAME.git
+
+# Push ke GitHub
+git push -u origin main
+```
+
+**Ganti:**
+- `USERNAME` dengan username GitHub kamu
+- `REPO_NAME` dengan nama repository yang tadi dibuat
+
+3. **Login GitHub**
+   - Akan muncul popup login
+   - Login dengan akun GitHub kamu
+   - Selesai! Project sudah di GitHub
+
+---
+
+### Cara 2: Via GitHub Desktop (Lebih Mudah)
+
+1. **Download dan Install GitHub Desktop**
+   - Download: https://desktop.github.com
+   - Install dan login dengan akun GitHub
+
+2. **Upload Project**
+   - Buka GitHub Desktop
+   - Klik: **File → Add Local Repository**
+   - Pilih folder: `C:\xampp\htdocs\uts_alif_web_login`
+   - Jika muncul error "not a git repository", klik **"Create a repository"**
+   - Isi nama, deskripsi, lalu klik **"Create Repository"**
+   - Klik tombol **"Publish repository"** di atas
+   - Pilih Public/Private, lalu klik **"Publish Repository"**
+   - Selesai!
+
+---
+
+## File yang Perlu Diabaikan (.gitignore)
+
+Sebelum upload, buat file `.gitignore` untuk mengabaikan file yang tidak perlu:
+
+**Isi file `.gitignore`:**
+```
+# Ignore file database lama
+pw2.sql
+install.sql
+login_jquery.sql
+login_function.php
+database.txt
+
+# Ignore folder temporary
+Thumbs.db
+.DS_Store
+```
+
+Cara buat `.gitignore`:
+1. Buka Notepad
+2. Copy paste isi di atas
+3. Save As: `.gitignore` (dengan titik di depan)
+4. Pilih "All Files" di type
+5. Save di folder `C:\xampp\htdocs\uts_alif_web_login`
+
+---
+
+## Update Project ke GitHub (Setelah Ada Perubahan)
+
+Setiap kali ada perubahan code, jalankan:
+
+```bash
+git add .
+git commit -m "Deskripsi perubahan"
+git push
+```
+
+Atau pakai GitHub Desktop:
+1. Buka GitHub Desktop
+2. Perubahan akan terdeteksi otomatis
+3. Isi "Summary" (deskripsi perubahan)
+4. Klik **"Commit to main"**
+5. Klik **"Push origin"**
+
+---
+
+## Tips
+
+- **Jangan upload password asli** - Ganti password default sebelum upload
+- **Buat README.md** - Jelaskan cara install dan fitur project
+- **Screenshot** - Tambahkan screenshot aplikasi di README
+- **Database** - Sudah ada file SQL terpisah di folder yang bisa di-import
+
+---
+
+## Troubleshooting
+
+### Error: "failed to push"
+→ Jalankan: `git pull origin main --rebase` lalu `git push`
+
+### Error: "fatal: not a git repository"
+→ Pastikan sudah jalankan `git init` di folder project
+
+### Error: "Permission denied"
+→ Login ulang GitHub via Git Bash atau GitHub Desktop
+
+---
+
+## Link Lengkap Project di GitHub
+
+Setelah upload, link project kamu:
+```
+https://github.com/USERNAME/REPO_NAME
+```
+
+Bagikan link ini untuk portfolio atau tugas!
